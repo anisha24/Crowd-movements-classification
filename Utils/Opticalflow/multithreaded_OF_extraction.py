@@ -43,7 +43,7 @@ def extract_opticalflow(threadName, list_videos):
       cap = cv2.VideoCapture(crowd11_folder + video_name)
       ret, frame1 = cap.read()
       previous_frame = cv2.cvtColor(frame1, cv2.COLOR_BGR2GRAY)
-      optical_flow = cv2.DualTVL1OpticalFlow_create()
+      optical_flow = cv2.optflow.DualTVL1OpticalFlow_create()
 
       flows = list()
       cap_bool = True
@@ -66,7 +66,7 @@ def extract_opticalflow(threadName, list_videos):
 
 if __name__ == '__main__':
    os.chdir('../../')
-   crowd11_folder = 'Data/Crowd-11/'
+   crowd11_folder = 'Data/Crowd11-to_process/'
    crowd11_of_folder = 'Data/Crowd11_OpticalFlow/'
    list_videos = os.listdir(crowd11_folder)
    nb_threads = 10
